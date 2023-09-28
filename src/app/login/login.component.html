@@ -1,0 +1,49 @@
+
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 m-auto">
+            <div class = "card boder-0 shadow">
+                    <div class="card-header fw-bold">
+                        LOGIN
+                    </div>
+                    <div class="card-body">
+                        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <!-- ... -->
+                            <div>
+                              <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
+                              <div class="col-sm-12">
+                                <input type="text" class="form-control" id="staticEmail" value="" formControlName="username">
+                                <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched">
+                                  Email is required
+                                </div>
+                                <div *ngIf="loginForm.get('username')?.hasError('email') && loginForm.get('username')?.touched">
+                                  Please enter a valid email address
+                                </div>
+                              </div>
+                          
+                              <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                              <div class="col-sm-12">
+                                <input type="password" class="form-control" formControlName="password" id="inputPassword">
+                                <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+                                  Password is required
+                                </div>
+                                <div *ngIf="loginForm.get('password')?.hasError('pattern') && loginForm.get('password')?.touched">
+                                  Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.
+                                </div>
+                              </div>
+                              
+                              <button type="submit" class="btn btn-primary mt-2" [disabled]="!loginForm.valid">Login</button>
+                              <!-- <a routerLink="/signup">Sign up</a> -->
+                            </div>
+                        </form>   
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
+
+
+
+
+  
