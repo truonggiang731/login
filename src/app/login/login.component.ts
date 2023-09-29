@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
-      // Đã kiểm tra xác nhận rằng biểu mẫu là hợp lệ, bạn có thể thực hiện hành động sau đây, chẳng hạn như gửi dữ liệu đăng nhập lên máy chủ.
     }
   }
 }
